@@ -52,7 +52,7 @@ const Upload = () => {
       companyName,
       jobTitle,
       jobDescription,
-      feedback: "",
+      feedback: ''
     };
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analyzing resume...");
@@ -61,16 +61,23 @@ const Upload = () => {
       uploadedFile.path,
       prepareInstructions({ jobTitle, jobDescription })
     );
+
     if (!feedback)
       return setStatusText("Failed to analyze the resume. Please try again.");
+
     const feedbackText =
       typeof feedback.message.content === "string"
         ? feedback.message.content
-        : feedback.message.content.map((msg) => msg.text).join("\n");
+        : feedback.message.content[0].text;
+
     data.feedback = JSON.parse(feedbackText);
-    await kv.set(`feedback:${uuid}`, JSON.stringify(data));
+
+    console.log({data})
+
+    await kv.set(`resume:${uuid}`, JSON.stringify(data));
+
     setStatusText("Analysis complete! Redirecting...");
-    console.log("Resume data:", data);
+    console.log({Data: data})
     navigate(`/resume/${uuid}`);
   };
 
