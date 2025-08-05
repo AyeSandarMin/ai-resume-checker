@@ -8,7 +8,7 @@ import { generateUUID } from "~/lib/utils";
 import { prepareInstructions } from "~/constants";
 
 const Upload = () => {
-  const { auth, isLoading, ai, kv, fs } = usePuterStore();
+  const { ai, kv, fs } = usePuterStore();
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [statusText, setStatusText] = useState("");
@@ -36,7 +36,6 @@ const Upload = () => {
       return setStatusText("Failed to upload the file. Please try again.");
     setStatusText("Converting to image...");
     const imageFile = await convertPdfToImage(file);
-    console.log(imageFile);
     if (!imageFile.file)
       return setStatusText("Error: Failed to convert PDF to image.");
     setStatusText("Uploading image...");
@@ -52,7 +51,7 @@ const Upload = () => {
       companyName,
       jobTitle,
       jobDescription,
-      feedback: ''
+      feedback: "",
     };
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analyzing resume...");
@@ -72,12 +71,9 @@ const Upload = () => {
 
     data.feedback = JSON.parse(feedbackText);
 
-    console.log({data})
-
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
     setStatusText("Analysis complete! Redirecting...");
-    console.log({Data: data})
     navigate(`/resume/${uuid}`);
   };
 
