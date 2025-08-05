@@ -1,24 +1,35 @@
-# Welcome to React Router!
+# Resume Analyzer with AI
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+An AI-powered resume analysis tool that provides detailed feedback to help job seekers optimize their resumes for specific positions and ATS systems.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- 📄 PDF resume upload and processing
+- 🤖 AI-powered resume analysis using Puter AI
+- 📊 Comprehensive scoring across multiple categories
+- 🎯 Job-specific feedback based on company and role
+- 📋 ATS compatibility assessment
+- 💡 Detailed improvement suggestions
+- 🔒 Secure file storage with Puter cloud services
+
+## How It Works
+
+1. **Upload Resume**: Users upload their PDF resume along with job details (company name, job title, job description)
+2. **AI Analysis**: The system uses Puter AI to analyze the resume against the specific job requirements
+3. **Detailed Feedback**: Provides scores and suggestions across 5 categories:
+   - **ATS Compatibility**: How well the resume passes automated screening
+   - **Content Quality**: Relevance and effectiveness of resume content
+   - **Structure & Format**: Organization and visual presentation
+   - **Tone & Style**: Professional language and communication style
+   - **Skills Alignment**: Match between candidate skills and job requirements
 
 ## Getting Started
 
-### Installation
+### Prerequisites
+- Node.js 18+ 
+- Puter account for AI and storage services
 
-Install the dependencies:
+### Installation
 
 ```bash
 npm install
@@ -26,62 +37,50 @@ npm install
 
 ### Development
 
-Start the development server with HMR:
-
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Visit `http://localhost:5173` to use the application.
 
-## Building for Production
-
-Create a production build:
+### Build
 
 ```bash
 npm run build
 ```
 
+## Tech Stack
+
+- **Frontend**: React 19, React Router 7, TypeScript
+- **Styling**: TailwindCSS
+- **File Processing**: PDF.js for PDF to image conversion
+- **AI Services**: Puter AI for resume analysis
+- **Storage**: Puter cloud storage and key-value store
+- **State Management**: Zustand
+
+## Configuration
+
+The application requires Puter services for AI analysis and file storage. Ensure you have:
+- Puter AI service configured
+- Puter file system access
+- Puter key-value store access
+
+## Project Structure
+
+```
+app/
+├── components/     # Reusable UI components
+├── routes/         # Application pages
+├── lib/           # Utilities and services
+├── constants/     # Configuration and sample data
+└── types/         # TypeScript type definitions
+```
+
 ## Deployment
 
-### Docker Deployment
-
-To build and run using Docker:
+Deploy using Docker or any platform supporting Node.js applications:
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+docker build -t resume-analyzer .
+docker run -p 3000:3000 resume-analyzer
 ```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
