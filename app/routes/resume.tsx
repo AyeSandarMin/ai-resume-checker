@@ -6,7 +6,7 @@ import Details from "~/components/Details";
 import { usePuterStore } from "~/lib/puter";
 
 export const meta = () => [
-  { title: "Resumey - Review" },
+  { title: "Resumax - Review" },
   {
     name: "description",
     content: "Detailed feedback of your resume",
@@ -33,7 +33,7 @@ const Resume = () => {
       if (!resume) return;
 
       const data = JSON.parse(resume);
-      console.log(data)
+      console.log(data);
 
       const resumeBlob = await fs.read(data.resumePath);
       if (!resumeBlob) return;
@@ -57,11 +57,9 @@ const Resume = () => {
   return (
     <div className="!pt-0">
       <nav className="resume-nav">
-        <Link to="/" className="back-button">
+        <Link to="/resumes" className="back-button">
           <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
-          <span className="text-gray-800 text-sm font-semibold">
-            Back to Homepage
-          </span>
+          <span className="text-gray-800 text-sm font-semibold">Back</span>
         </Link>
       </nav>
       <div className="flex flex-row w-full max-lg:flex-col-reverse">

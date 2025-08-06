@@ -321,7 +321,6 @@ export const usePuterStore = create<PuterStore>((set, get) => {
       setError("Puter.js not available");
       return;
     }
-    // return puter.ai.chat(prompt, imageURL, testMode, options);
     return puter.ai.chat(prompt, imageURL, testMode, options) as Promise<
       AIResponse | undefined
     >;
@@ -334,24 +333,31 @@ export const usePuterStore = create<PuterStore>((set, get) => {
       return;
     }
 
-    return puter.ai.chat(
-      [
-        {
-          role: "user",
-          content: [
-            {
-              type: "file",
-              puter_path: path,
-            },
-            {
-              type: "text",
-              text: message,
-            },
-          ],
-        },
-      ],
-      { model: "claude-3-7-sonnet" }
-    ) as Promise<AIResponse | undefined>;
+    try {
+      const result = await puter.ai.chat(
+        [
+          {
+            role: "user",
+            content: [
+              {
+                type: "file",
+                puter_path: path,
+              },
+              {
+                type: "text",
+                text: message,
+              },
+            ],
+          },
+        ],
+        { model: "claude-3-7-sonnet" }
+      );
+      return result as AIResponse;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Feedback generation failed";
+      setError(msg);
+      return undefined;
+    }
   };
 
   const img2txt = async (image: string | File | Blob, testMode?: boolean) => {

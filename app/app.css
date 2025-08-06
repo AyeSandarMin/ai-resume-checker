@@ -16,18 +16,20 @@
   --color-badge-green-text: #254d4a;
   --color-badge-red-text: #752522;
   --color-badge-yellow-text: #73321b;
+  --color-main-blue: #3D84A8;
 }
 
 html,
 body {
   @apply bg-white;
+  overflow-x: hidden;
 }
 
 main {
-  @apply min-h-screen pt-10;
+  @apply min-h-screen pt-2;
 }
 h1 {
-  @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+  @apply max-sm:text-[3rem] text-4xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
 }
 
 h2 {
@@ -57,7 +59,7 @@ form {
     @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
   }
   .primary-button {
-    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full;
+    @apply primary-gradient text-white rounded-lg px-4 py-2 cursor-pointer w-full;
   }
   .resume-nav {
     @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
@@ -78,14 +80,14 @@ form {
     @apply flex flex-col items-center gap-8 pt-12 max-sm:mx-2 mx-15 pb-5;
   }
   .page-heading {
-    @apply flex flex-col items-center gap-8 max-w-4xl text-center max-sm:gap-4;
+    @apply flex flex-col items-center gap-8 max-w-[1200px] text-center max-sm:gap-4;
   }
   .resumes-section {
     @apply flex flex-wrap max-md:flex-col max-md:gap-4 gap-6 items-start max-md:items-center w-full max-w-[1850px] justify-evenly;
   }
 
   .resume-card {
-    @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4;
+    @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4 z-10;
   }
 
   .resume-card-header {
@@ -97,7 +99,7 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
+    @apply flex flex-row justify-between items-center bg-transparent rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto z-10 relative;
   }
 
   .score-badge {
@@ -129,7 +131,7 @@ form {
 }
 
 @utility primary-gradient {
-  background: linear-gradient(to bottom, #8e98ff, #606beb);
+  background: linear-gradient(to bottom, #3d84a8, #1a96d7);
   box-shadow: 0px 74px 21px 0px #6678ef00;
 }
 
@@ -149,4 +151,208 @@ form {
   to {
     opacity: 1;
   }
+}
+
+.aurora-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: white;
+}
+
+.aurora-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    mix-blend-mode: multiply;
+}
+
+.aurora-1 {
+    background: radial-gradient(
+        ellipse 600px 400px at 30% 50%,
+        rgba(0, 255, 150, 0.4) 0%,
+        rgba(0, 200, 255, 0.3) 40%,
+        transparent 70%
+    );
+    animation: aurora-wave-1 8s ease-in-out infinite alternate;
+    transform-origin: center;
+    filter: blur(40px);
+}
+
+.aurora-2 {
+    background: radial-gradient(
+        circle 500px at 70% 30%,
+        rgba(61, 132, 168, 0.302) 0%,
+        rgba(233, 212, 226, 0.4) 30%,
+        transparent 60%
+    );
+    animation: aurora-wave-2 12s ease-in-out infinite alternate-reverse;
+    transform-origin: center;
+    filter: blur(50px);
+}
+
+.aurora-3 {
+    background: radial-gradient(
+        ellipse 800px 300px at 80% 70%,
+        rgba(0, 255, 100, 0.2) 0%,
+        rgba(100, 255, 200, 0.3) 40%,
+        transparent 70%
+    );
+    animation: aurora-wave-3 15s ease-in-out infinite;
+    filter: blur(60px);
+}
+
+.aurora-4 {
+     background: radial-gradient(
+        circle 500px at 70% 30%,
+        rgba(61, 132, 168, 0.302) 0%,
+        rgba(233, 212, 226, 0.4) 30%,
+        transparent 60%
+    );
+    animation: aurora-wave-4 10s ease-in-out infinite alternate;
+    filter: blur(45px);
+}
+
+.aurora-5 {
+    background: radial-gradient(
+        ellipse 700px 200px at 50% 20%,
+        rgba(255, 150, 100, 0.2) 0%,
+        rgba(100, 200, 255, 0.3) 50%,
+        transparent 80%
+    );
+    animation: aurora-wave-5 14s ease-in-out infinite alternate-reverse;
+    filter: blur(55px);
+}
+
+.aurora-6 {
+     background: radial-gradient(
+        circle 500px at 70% 30%,
+        rgba(61, 132, 168, 0.302) 0%,
+        rgba(233, 212, 226, 0.4) 30%,
+        transparent 60%
+    );
+    animation: aurora-wave-4 10s ease-in-out infinite alternate;
+    filter: blur(45px);
+}
+
+.aurora-7 {
+    background: radial-gradient(
+        ellipse 700px 200px at 50% 20%,
+        rgba(255, 150, 100, 0.2) 0%,
+        rgba(100, 200, 255, 0.3) 50%,
+        transparent 80%
+    );
+    animation: aurora-wave-5 14s ease-in-out infinite alternate-reverse;
+    filter: blur(55px);
+}
+
+@keyframes aurora-wave-1 {
+    0% {
+        transform: translate(-30px, -20px) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(40px, 30px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-10px, -40px) scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@keyframes aurora-wave-2 {
+    0% {
+        transform: translate(50px, 40px) scale(1.1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-20px, -30px) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-40px, 60px) scale(1.3);
+        opacity: 0.4;
+    }
+}
+
+@keyframes aurora-wave-3 {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.3;
+    }
+    33% {
+        transform: translate(-50px, -30px) scale(1.1);
+        opacity: 0.6;
+    }
+    66% {
+        transform: translate(30px, 40px) scale(0.8);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.3;
+    }
+}
+
+@keyframes aurora-wave-4 {
+    0% {
+        transform: translate(-20px, -30px) scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(60px, 20px) scale(1.2);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(40px, -20px) scale(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes aurora-wave-5 {
+    0% {
+        transform: translate(20px, 10px) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-40px, -20px) scale(1.1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(10px, 30px) scale(0.9);
+        opacity: 0.3;
+    }
+}
+@keyframes aurora-wave-6 {
+    0% {
+        transform: translate(-30px, -20px) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(40px, 30px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-10px, -40px) scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+@keyframes aurora-wave-7 {
+    0% {
+        transform: translate(50px, 40px) scale(1.1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-20px, -30px) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-40px, 60px) scale(1.3);
+        opacity: 0.4;
+    }
 }

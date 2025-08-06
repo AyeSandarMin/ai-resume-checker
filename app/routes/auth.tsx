@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 import { usePuterStore } from "~/lib/puter";
 
 export const meta = () => [
-  { title: "Resumey - Authentication" },
+  { title: "Resumax - Authentication" },
   {
     name: "description",
     content: "Login or register to access your resumes and AI feedback.",

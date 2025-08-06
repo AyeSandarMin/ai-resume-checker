@@ -91,8 +91,15 @@ const Upload = () => {
   };
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover bg-center bg-no-repeat">
-      <Navbar />
+    <main className="aurora-container bg-cover bg-center bg-no-repeat">
+      <div className="aurora-layer aurora-1"></div>
+      <div className="aurora-layer aurora-2"></div>
+      <div className="aurora-layer aurora-3"></div>
+      <div className="aurora-layer aurora-4"></div>
+      <div className="aurora-layer aurora-5"></div>
+      <div className="aurora-layer aurora-6"></div>
+      <div className="aurora-layer aurora-7"></div>
+      <Navbar buttonText={"Upload Resume"} />
       <section className="main-section">
         <div className="page-heading py-16">
           <h1>AI Powered Feedback For Your Dream Job</h1>
