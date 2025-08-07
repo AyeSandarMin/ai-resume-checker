@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const ScoreGauge = ({ score = 75 }: { score: number }) => {
   const [pathLength, setPathLength] = useState(0);
-  const pathRef = useRef<SVGPathElement>(null);
-
+  const pathRef = useRef<SVGCircleElement>(null);
   const percentage = score / 100;
 
   useEffect(() => {
@@ -14,8 +13,8 @@ const ScoreGauge = ({ score = 75 }: { score: number }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-40 h-20">
-        <svg viewBox="0 0 100 50" className="w-full h-full">
+      <div className="relative w-40 h-40">
+        <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
           <defs>
             <linearGradient
               id="gaugeGradient"
@@ -28,31 +27,33 @@ const ScoreGauge = ({ score = 75 }: { score: number }) => {
               <stop offset="100%" stopColor="#fca5a5" />
             </linearGradient>
           </defs>
-
-          {/* Background arc */}
-          <path
-            d="M10,50 A40,40 0 0,1 90,50"
+          {/* Background circle */}
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
             fill="none"
             stroke="#e5e7eb"
-            strokeWidth="10"
+            strokeWidth="8"
             strokeLinecap="round"
           />
-
-          {/* Foreground arc with rounded ends */}
-          <path
+          {/* Foreground circle with gradient */}
+          <circle
             ref={pathRef}
-            d="M10,50 A40,40 0 0,1 90,50"
+            cx="50"
+            cy="50"
+            r="40"
             fill="none"
             stroke="url(#gaugeGradient)"
-            strokeWidth="10"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeDasharray={pathLength}
             strokeDashoffset={pathLength * (1 - percentage)}
           />
         </svg>
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center pt-2">
-          <div className="text-xl font-semibold pt-4">{score}/100</div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="text-2xl text-black font-bold">{score}</div>
+          <div className="text-xs text-black">Overall</div>
         </div>
       </div>
     </div>

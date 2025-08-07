@@ -1,44 +1,60 @@
-import ScoreGauge from "./ScoreGauge";
-import ScoreBadge from "./ScoreBadge";
+import ScoreGauge from "./OverallScore";
+import { motion } from "framer-motion";
 
-const Category = ({ title, score }: { title: string; score: number }) => {
-  const textColor =
-    score > 70
-      ? "text-green-600"
-      : score > 49
-        ? "text-yellow-600"
-        : "text-red-600";
+const Category = ({
+  title,
+  score,
+  keyIndex,
+}: {
+  title: string;
+  score: number;
+  keyIndex: number;
+}) => {
   return (
-    <div className="resume-summary">
-      <div className="category">
-        <div className="flex flex-row gap-2 items-center justify-center">
-          <p className="text-2xl">{title}</p>
-          <ScoreBadge score={score} />
-        </div>
-        <p className="text-2xl">
-          <span className={textColor}>{score}</span>/100
-        </p>
+    <motion.div
+      key={keyIndex}
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: keyIndex * 0.1 }}
+      className="mb-8"
+    >
+      <div className="flex justify-between items-center">
+        <span className="text-sm font-medium pb-2 text-black">{title}</span>
+        <span className="text-sm font-bold pb-2 text-black">{score}%</span>
       </div>
-    </div>
+      <div className="w-full bg-gray-700 rounded-full h-3">
+        <motion.div
+          className={`h-3 rounded-full ${
+            score > 69
+              ? "bg-green-500"
+              : score > 49
+                ? "bg-yellow-400"
+                : "bg-red-500"
+          }`}
+          initial={{ width: 0 }}
+          animate={{ width: `${score}%` }}
+          transition={{ delay: keyIndex * 0.1 + 0.2, duration: 0.8 }}
+        />
+      </div>
+    </motion.div>
   );
 };
 
 const Summary = ({ feedback }: { feedback: Feedback }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md w-full">
-      <div className="flex flex-row items-center p-4 gap-8">
-        <ScoreGauge score={feedback.overallScore} />
-        <div className="flex flex-col gap-2">
-          <h2 className="text-2xl font-bold">Your Resume Score</h2>
-          <p className="text-sm text-gray-500">
-            This score is calculated based on the variables listed below.
-          </p>
-        </div>
-      </div>
-      <Category title={"Tone & Style"} score={feedback.toneAndStyle.score} />
-      <Category title={"Content"} score={feedback.content.score} />
-      <Category title={"Structure"} score={feedback.structure.score} />
-      <Category title={"Skills"} score={feedback.skills.score} />
+    <div>
+      <Category
+        title={"Tone & Style"}
+        score={feedback.toneAndStyle.score}
+        keyIndex={1}
+      />
+      <Category title={"Content"} score={feedback.content.score} keyIndex={2} />
+      <Category
+        title={"Structure"}
+        score={feedback.structure.score}
+        keyIndex={3}
+      />
+      <Category title={"Skills"} score={feedback.skills.score} keyIndex={4} />
     </div>
   );
 };
