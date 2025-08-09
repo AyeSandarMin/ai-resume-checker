@@ -1,8 +1,6 @@
 import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
-import { usePuterStore } from "~/lib/puter";
-import { useNavigate, Link } from "react-router";
-import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import Highlights from "~/components/Highlights";
 import { motion } from "framer-motion";
 import HowItWorksSection from "~/components/HowItWorks";
@@ -22,13 +20,6 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { auth } = usePuterStore();
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (!auth.isAuthenticated) navigate("/auth?next=/");
-  // }, [auth.isAuthenticated]);
-
   return (
     <main className="aurora-container bg-cover bg-center bg-no-repeat overflow-x-hidden">
       <div className="aurora-layer aurora-1"></div>
@@ -38,7 +29,7 @@ export default function Home() {
       <div className="aurora-layer aurora-5"></div>
       <div className="aurora-layer aurora-6"></div>
       <div className="aurora-layer aurora-7"></div>
-      <Navbar buttonText={"Get Started"} iconName="right-arrow"/>
+      <Navbar buttonText={"Get Started"} iconName="right-arrow" />
       <section className="main-section z-10 relative">
         <div className="page-heading py-5 px-8 flex flex-row justify-between max-[992px]:flex-col">
           <div>
@@ -50,19 +41,21 @@ export default function Home() {
               <h1 className="text-left text-gray-900 text-5xl">
                 AI-Powered Resume Checker:
                 <br />
-                for Job Matching & ATS Success
+                for Job Matching & ATS Success — Built with Puter.js
               </h1>
               <p className="text-left max-w-lg text-base pt-3">
-                Upload your resume and job description. Our AI analyzes
-                alignment, ATS readiness, tone, structure, and skills — helping
-                you stand out and land interviews.
+                Upload your resume and job description, and watch our AI in
+                action. Implemented with Puter.js, this tool analyzes alignment,
+                ATS readiness, tone, structure, and skills — helping you stand
+                out and land interviews.
               </p>
               <div className="flex flex-col justify-center mt-6 gap-4">
                 <Link
                   to="/upload"
                   className="bg-gradient-to-r from-[#4be1ec] to-[#3D84A8] text-white px-4 py-3 rounded-xl text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-fit z-10"
                 >
-                  Upload Resume <CloudUpload className="inline pl-1 mt-[-2px]" />
+                  Upload Resume{" "}
+                  <CloudUpload className="inline pl-1 mt-[-2px]" />
                 </Link>
               </div>
             </motion.div>
@@ -82,11 +75,11 @@ export default function Home() {
           </div>
         </div>
         <Highlights />
-        <HowItWorksSection/>
-        <FeaturesSection/>
-        <ATSPreviewSection/>
+        <HowItWorksSection />
+        <FeaturesSection />
+        <ATSPreviewSection />
       </section>
-      <Footer/>
+      <Footer />
     </main>
   );
 }

@@ -18,9 +18,9 @@ const Footer = () => {
               <img src="/resumax-logo.png" alt="Logo" className="w-30 h-7" />
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Advanced AI-powered resume analysis tool that helps job seekers
-              optimize their resumes and improve their chances of landing their
-              dream job.
+              This portfolio project showcases my ability to integrate AI APIs
+              and client-side storage with Puter.js, delivering a seamless
+              resume-checking experience.
             </p>
             <div className="flex space-x-4">
               <a
