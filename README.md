@@ -2,6 +2,8 @@
 
 AI-powered resume analyzer that helps job seekers optimize their resumes for specific positions and ATS systems.
 
+**🎯 This is a portfolio project** - Built to showcase full-stack development skills using modern web technologies. Created for demonstration and learning purposes.
+
 ## Features
 
 - 📄 Upload PDF resumes with drag & drop
