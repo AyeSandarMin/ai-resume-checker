@@ -153,6 +153,10 @@ form {
   }
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .aurora-container {
     position: relative;
     width: 100%;

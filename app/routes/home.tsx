@@ -25,9 +25,9 @@ export default function Home() {
   const { auth } = usePuterStore();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!auth.isAuthenticated) navigate("/auth?next=/");
-  }, [auth.isAuthenticated]);
+  // useEffect(() => {
+  //   if (!auth.isAuthenticated) navigate("/auth?next=/");
+  // }, [auth.isAuthenticated]);
 
   return (
     <main className="aurora-container bg-cover bg-center bg-no-repeat overflow-x-hidden">

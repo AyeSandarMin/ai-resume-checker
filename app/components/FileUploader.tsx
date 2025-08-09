@@ -36,7 +36,10 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
           {file ? (
             <div
               className="uploader-selected-file"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                // e.stopPropagation();
+                // onFileSelect?.(null);
+              }}
             >
               <div className="flex items-center space-x-3">
                 <img src="/images/pdf.png" alt="pdf" className="size-10" />
@@ -51,7 +54,9 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
               </div>
               <button
                 className="p-2 cursor-pointer"
-                onClick={(e) => onFileSelect?.(null)}
+                onClick={(e) => {
+                  onFileSelect?.(null);
+                }}
               >
                 <img src="/icons/cross.svg" alt="remove" className="w-4 h-4" />
               </button>
