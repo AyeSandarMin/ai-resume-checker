@@ -177,7 +177,7 @@ const FeaturesSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
-        > 
+        >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -228,7 +228,7 @@ const FeaturesSection: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4be1ec] to-[#3D84A8] text-white px-6 py-4 rounded-xl text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4be1ec] to-[#3D84A8] text-white px-2 py-2 md:px-4 md:py:3 rounded-xl text-[14px] md:text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Try Analysis Now
               <motion.div

@@ -38,7 +38,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-left text-gray-900 text-5xl">
+              <h1 className="text-left text-gray-900 text-lg md:text-5xl">
                 AI-Powered Resume Checker:
                 <br />
                 for Job Matching & ATS Success — Built with Puter.js
@@ -52,7 +52,7 @@ export default function Home() {
               <div className="flex flex-col justify-center mt-6 gap-4">
                 <Link
                   to="/upload"
-                  className="bg-gradient-to-r from-[#4be1ec] to-[#3D84A8] text-white px-4 py-3 rounded-xl text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-fit z-10"
+                  className="bg-gradient-to-r from-[#4be1ec] to-[#3D84A8] text-white px-2 py-2 md:px-4 md:py-3 rounded-xl text-[14px] md:text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-fit z-10"
                 >
                   Upload Resume{" "}
                   <CloudUpload className="inline pl-1 mt-[-2px]" />
@@ -69,7 +69,7 @@ export default function Home() {
               <img
                 src="/images/hero-img.png"
                 alt="banner-img"
-                className="max-w-[600px]"
+                className="sm:w-auto md:max-w-[600px]"
               />
             </motion.div>
           </div>
