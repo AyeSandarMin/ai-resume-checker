@@ -28,12 +28,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 w-full aurora-container">
-        <div className="aurora-layer aurora-1"></div>
-      <div className="aurora-layer aurora-2"></div>
-      <div className="aurora-layer aurora-3"></div>
-      <div className="aurora-layer aurora-4"></div>
-      <div className="aurora-layer aurora-5"></div>
+    <section className="py-20 w-full">
       <div className="max-w-[1200px] mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -46,7 +41,7 @@ export default function HowItWorks() {
         <div className="relative">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 rounded"></div>
 
-          <div className="space-y-24">
+          <div className="space-y-24 mt-24">
             {steps.map((step, index) => {
               const isRight = index % 2 === 0;
               const StepIcon = step.icon;
@@ -78,7 +73,7 @@ export default function HowItWorks() {
                       <p className="text-gray-600">{step.description}</p>
                     </div>
                   </div>
-                  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
                     <div
                       className="w-12 h-12 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
                       style={{ backgroundColor: "#3D84A8" }}

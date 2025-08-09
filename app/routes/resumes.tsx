@@ -3,6 +3,7 @@ import ResumeCard from "~/components/ResumeCard";
 import { usePuterStore } from "~/lib/puter";
 import { useNavigate, Link } from "react-router";
 import { useEffect, useState } from "react";
+import { CloudUpload } from "lucide-react";
 
 export function meta() {
   return [
@@ -20,9 +21,9 @@ export default function Resumes() {
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
 
-  // useEffect(() => {
-  //   if (!auth.isAuthenticated) navigate("/auth?next=/");
-  // }, [auth.isAuthenticated]);
+  useEffect(() => {
+    if (!auth.isAuthenticated) navigate("/auth?next=/");
+  }, [auth.isAuthenticated]);
 
   useEffect(() => {
     const laodResume = async () => {
@@ -47,7 +48,7 @@ export default function Resumes() {
       <div className="aurora-layer aurora-5"></div>
       <div className="aurora-layer aurora-6"></div>
       <div className="aurora-layer aurora-7"></div>
-      <Navbar buttonText={"Upload Resume"}/>
+      <Navbar buttonText={"Upload Resume"} iconName="upload"/>
       <section className="main-section z-10 relative">
         <div className="page-heading py-5 px-8 flex flex-col justify-between">
           <h1 className="text-left">
@@ -56,9 +57,9 @@ export default function Resumes() {
             for Job Matching & ATS Success
           </h1>
           {!loadingResumes && resumes.length === 0 ? (
-            <h2>No resume found. Please upload your resume to get feedback.</h2>
+            <h3 className="text-lg">No resume found. Please upload your resume to get feedback.</h3>
           ) : (
-            <h2>Review your submissions and checked AI powered feedback.</h2>
+            <h3 className="text-lg">Review your submissions and checked AI powered feedback.</h3>
           )}
         </div>
         {loadingResumes && (
@@ -79,7 +80,7 @@ export default function Resumes() {
               to="/upload"
               className="primary-button w-fit text-lg rounded-lg font-semibold z-10"
             >
-              Upload Resume
+              Upload Resume <CloudUpload className="inline pl-1" />
             </Link>
           </div>
         )}

@@ -99,7 +99,7 @@ const Upload = () => {
       <div className="aurora-layer aurora-5"></div>
       <div className="aurora-layer aurora-6"></div>
       <div className="aurora-layer aurora-7"></div>
-      <Navbar buttonText={"Upload Resume"} />
+      <Navbar buttonText={"Upload Resume"} iconName="upload"/>
       <section className="main-section">
         <div className="page-heading py-16">
           <h1>AI Powered Feedback For Your Dream Job</h1>

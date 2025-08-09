@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-const ScoreGauge = ({ score = 75 }: { score: number }) => {
+const OverallScore = ({ score = 75 }: { score: number }) => {
   const [pathLength, setPathLength] = useState(0);
   const pathRef = useRef<SVGCircleElement>(null);
   const percentage = score / 100;
+
+  const scoreColor =
+    score > 69 ? "#008236" : score > 49 ? "#f0b100" : "#c10007";
 
   useEffect(() => {
     if (pathRef.current) {
@@ -23,11 +26,11 @@ const ScoreGauge = ({ score = 75 }: { score: number }) => {
               x2="100%"
               y2="0%"
             >
-              <stop offset="0%" stopColor="#a78bfa" />
-              <stop offset="100%" stopColor="#fca5a5" />
+              <stop offset="0%" stopColor={scoreColor} />
+              <stop offset="100%" stopColor={scoreColor} />
             </linearGradient>
           </defs>
-          {/* Background circle */}
+
           <circle
             cx="50"
             cy="50"
@@ -37,7 +40,6 @@ const ScoreGauge = ({ score = 75 }: { score: number }) => {
             strokeWidth="8"
             strokeLinecap="round"
           />
-          {/* Foreground circle with gradient */}
           <circle
             ref={pathRef}
             cx="50"
@@ -60,4 +62,4 @@ const ScoreGauge = ({ score = 75 }: { score: number }) => {
   );
 };
 
-export default ScoreGauge;
+export default OverallScore;

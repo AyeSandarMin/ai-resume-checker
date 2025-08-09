@@ -1,4 +1,3 @@
-import ScoreGauge from "./OverallScore";
 import { motion } from "framer-motion";
 
 const Category = ({
@@ -26,10 +25,10 @@ const Category = ({
         <motion.div
           className={`h-3 rounded-full ${
             score > 69
-              ? "bg-green-500"
+              ? "bg-green-700"
               : score > 49
-                ? "bg-yellow-400"
-                : "bg-red-500"
+                ? "bg-yellow-500"
+                : "bg-red-700"
           }`}
           initial={{ width: 0 }}
           animate={{ width: `${score}%` }}
